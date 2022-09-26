@@ -4,7 +4,7 @@ WORKDIR /src/app/
 
 COPY . .
 
-ENTRYPOINT ["npm", "run"]
+# ENTRYPOINT ["npm", "run"]
 # CMD ["run", "dev"]
 
 EXPOSE 3000/tcp
