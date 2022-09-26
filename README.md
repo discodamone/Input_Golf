@@ -13,3 +13,4 @@ Make sure startdev.sh is executable, then run it with ./startdev.sh. This contai
 ### New way (with MongoDB):
 Install docker-compose. Run sudo `docker-compose up -d` from within the Input\_Golf directory. Any changes you make to the source code will apply in real-time.
 
+### Important note: you need a .env file! Ask for it if you need it.
