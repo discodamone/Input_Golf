@@ -3,10 +3,15 @@
 ## /api/login
 Initiates the OAuth flow to log in with Github. Redirects the user to Github to log in.
 
+## /api/logout
+Destroys the user's session and removes the cookie, redirects to the landing page.
+
 ## /api/login\_callback
 Receives a code from Github via a query parameter named `code`. The user will be redirected from Github to this API route after logging in. 
 
-We use this `code` received to make an API request to Github and retrieve an `access_token`. This `access_token` can be used later to retrieve the user's email address and limited other information such as username and real name.
+We use this code to make an API request to get the user's public profile information.
 
-## /api/user/info
-Uses the `oauth_token` stored in a user's session to retrieve information about the user from Github.
+We get the user's public profile information and save it in the session.
+
+## /api/user/session
+Mostly used for debugging, lists the current items stored in the user's session.
