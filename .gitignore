@@ -1,2 +1,9 @@
 # ignore the .env file because it contains secrets
 .env
+
+.next
+.node_repl_history
+
+build/Release
+
+.npm
