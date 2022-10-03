@@ -7,3 +7,6 @@
 build/Release
 
 .npm
+
+# dependencies
+/node_modules
