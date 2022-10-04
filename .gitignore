@@ -8,5 +8,5 @@ build/Release
 
 .npm
 
-# dependencies
-/node_modules
+node_modules
+

@@ -1,0 +1,16 @@
+.header-wrapper {
+    background-color: #fafafa;
+    width: 100%;
+    font-size: 24px;
+}
+
+.header {
+    padding: 10px;
+    display: flex;
+    width: 100%;
+}
+
+.user-info {
+    margin-left: auto;
+    padding: 10px;
+}
