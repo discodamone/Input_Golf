@@ -1,0 +1,306 @@
+[
+    {
+      "question": "A small program that gets installed on a computer while browsing the Internet. The basic function of active content is to provide an interactive Internet experience through videos and toolbars. Sometimes, active content is used to gain unauthorized access to a computer, and then damage the data stored on it or install malicious software on it.",
+      "correct": "Active content"
+    },
+    {
+      "question": "The act or instance of making a duplicate copy of a program, a disk, or data. The duplicate copy is called a backup.",
+      "correct": "Backup"
+    },
+    {
+      "question": "Temporary memory on your computer that is sometimes used to store local copies of files opened when you browse the Internet.",
+      "correct": "Cache"
+    },
+    {
+      "question": "Keeping a user’s data, including personal files and e-mail messages, such that the data is not accessible by anyone without appropriate permission",
+      "correct": "Computer privacy"
+    },
+    {
+      "question": "A small file on a computer that is created when a user visits a Web site. A Web site uses cookies to identify users who visit the site, and also track the preferences of the users.",
+      "correct": "Cookie"
+    },
+    {
+      "question": "A method of protecting the rights of an originator of a creative work, such as text, piece of music, painting, or computer program, through law.",
+      "correct": "Copyright"
+    },
+    {
+      "question": "The process of reconverting the encrypted data into a readable and usable form.",
+      "correct": "Decryption"
+    },
+    {
+      "question": "The process of converting data into an unreadable and unusable form. Encryption is done to prevent unauthorized access of data, especially during data transmission over the Internet.",
+      "correct": "Encryption"
+    },
+    {
+      "question": "A filter that blocks unreliable and unauthorized information from the Internet before it reaches your computer or a private network. It provides additional protection against threats such as hackers and viruses. A firewall also helps to ensure computer privacy by restricting external access by any unauthorized user.",
+      "correct": "Firewall"
+    },
+    {
+      "question": "A person who uses computer expertise to gain unauthorized access to a computer, and then misuses or tampers the programs and data stored on the computer.",
+      "correct": "Hacker"
+    },
+    {
+      "question": "Any information available on the Internet is an intellectual property, which is legally owned by the person who created it. The owner of an intellectual property has the exclusive rights to control the use of this information.",
+      "correct": "Intellectual property"
+    },
+    {
+      "question": "A company that provides Internet connectivity to individuals, businesses, and organizations.",
+      "correct": "ISP"
+    },
+    {
+      "question": "An individual who develops contact with Internet users, through chat rooms, online forums, or e-mail, to exploit them financially or involve them in dangerous relationships.",
+      "correct": "Online predator"
+    },
+    {
+      "question": "A unique string of characters that a user types in as an identification code. It is a security measure used to restrict access to computer systems and sensitive files.",
+      "correct": "Password"
+    },
+    {
+      "question": "The act of extracting personal information, such as passwords and credit card details, from computer users and then use the information for malicious purposes.",
+      "correct": "Phishing"
+    },
+    {
+      "question": "The act of copying someone’s work and using it as if it is your own work, without mentioning the source.",
+      "correct": "Plagiarism"
+    },
+    {
+      "question": "A sudden increase in line voltage, which may lead to the damage of electronic devices, such as computers.",
+      "correct": "Power surge"
+    },
+    {
+      "question": "An Internet security protocol that ensures secure data communication by encrypting the information transmitted. The SSL protocol certifies that a Web site is genuine and ensures that the data provided to the site is not misused.",
+      "correct": "SSL"
+    },
+    {
+      "question": "Verbal defamation. This is a punishable offense.",
+      "correct": "Slander"
+    },
+    {
+      "question": "Unauthorized copying of copyrighted software without obtaining the license or permission of its copyright owner.",
+      "correct": "Software piracy"
+    },
+    {
+      "question": "An irrelevant and unsolicited e-mail message sent by an unknown sender. A spam is sent to distribute a message to many recipients at one time",
+      "correct": "Spam"
+    },
+    {
+      "question": "A computer program that is installed on your computer without your knowledge. Spyware can secretly send out information about your Web browsing habits or other personal details to another computer through the network.",
+      "correct": "Spyware"
+    },
+    {
+      "question": "A destructive computer program disguised as a game, utility, or software. When run, a Trojan horse does something harmful to the computer system while appearing to do something useful.",
+      "correct": "Trojan hourse"
+    },
+    {
+      "question": "The name by which a user is identified to a computer system or network. To access a computer protected by username and password, a user needs to enter the correct combination of username and password.",
+      "correct": "User name"
+    },
+    {
+      "question": "A computer program that is designed to cause malfunctioning of a computer or damage the data stored on the computer.",
+      "correct": "Virus"
+    },
+    {
+      "question": "A computer program that propagates itself across computers, usually by creating copies of itself in each computer's memory. A worm might duplicate itself in one computer so often that it causes the computer to crash.",
+      "correct": "Worm"
+    },
+    {
+      "question": "A check that asks the user to confirm whether or not they wish to go ahead with an instruction.",
+      "correct": "Verification"
+    },
+    {
+      "question": "Software that is intended to disrupt or modify a computer system and its data without the user's knowledge",
+      "correct": "Malware"
+    },
+    {
+      "question": "Self-replicating software that disrupts normal operations of the computer, and can cause data loss by deleting and corrupting files.",
+      "correct": "Virus (malware)"
+    },
+    {
+      "question": "Software that replicates themselves filling a computer's storage, with no intention to delete or corrupt files",
+      "correct": "Worms (malware)"
+    },
+    {
+      "question": "Programs that disguise themselves as other programs; acts like any other virus",
+      "correct": "Trojan Horses (malware)"
+    },
+    {
+      "question": "Collects personal and sensitive data and sends it to the computer programmer",
+      "correct": "Spyware (malware)"
+    },
+    {
+      "question": "An attempt to gain data or information using \"bait\"",
+      "correct": "Phishing"
+    },
+    {
+      "question": "Using emails to capture data by tricking a user to visit a fake website, and thus tricks the user into entering personal data",
+      "correct": "Pharming"
+    },
+    {
+      "question": "Prevents access to data from a server or a network by sending more requests than a server can handle",
+      "correct": "Denial of Service (DoS) attacks"
+    },
+    {
+      "question": "A computer which handles requests from other computers",
+      "correct": "Server"
+    },
+    {
+      "question": "A communication which asks for data to be transferred",
+      "correct": "Request"
+    },
+    {
+      "question": "Two or more computers attack a server at the same time, with the attacking computer infected with malware that instructs the computer to continually send requests to the server",
+      "correct": "Distributed Denial of Service (DDoS)"
+    },
+    {
+      "question": "Method of which to prevent physical access to a computer",
+      "correct": "Physical Security"
+    },
+    {
+      "question": "Security which prevents access to a computer even if the user has physical access",
+      "correct": "Authentication"
+    },
+    {
+      "question": "The use of physical characteristics such as fingerprints, voice patterns, and face shapes as means of identification",
+      "correct": "Biometrics"
+    },
+    {
+      "question": "A program which finds and removes viruses from a computer by scanning it",
+      "correct": "Anti-virus Software"
+    },
+    {
+      "question": "A security technology that monitors incoming and outgoing traffic and provides a protective barrier between the computer and other computers",
+      "correct": "Firewalls"
+    },
+    {
+      "question": "A method of preventing access to the server by using an intermediary server to direct traffic away from the main server",
+      "correct": "Proxy Servers"
+    },
+    {
+      "question": "A way of modifying data to make it difficult to understand if intercepted",
+      "correct": "Encryption"
+    },
+    {
+      "question": "information that describes how a message is encrypted",
+      "correct": "Key"
+    },
+    {
+      "question": "Governs communication across the internet",
+      "correct": "HTTP (Hyper Text Transfer Protocol)"
+    },
+    {
+      "question": "A more secure version of HTTP and often used to handle financial transaction.",
+      "correct": "HTTPS (Hyper Test Transfer Protocol Secure)"
+    },
+    {
+      "question": "Governs transfer of files across the internet",
+      "correct": "FTP (File Transfer Protocol)"
+    },
+    {
+      "question": "Handles email communication",
+      "correct": "Simple Mail Transfer Protocol (SMTP)"
+    },
+    {
+      "question": "Handles communications on a network",
+      "correct": "Transfer control Protocol/Internet Protocol (TCP/IP)"
+    },
+    {
+      "question": "Handles audio/visual communication",
+      "correct": "Voice Over Internet Protocol (VoIP)"
+    },
+    {
+      "question": "A governing set of rules to dictate how computers communicate which each other",
+      "correct": "Protocol"
+    },
+    {
+      "question": "A protocol which allows secure links between computers using asymmetric encryption",
+      "correct": "Secure Socket Layer (SSL)"
+    },
+    {
+      "question": "Newer version of SSL",
+      "correct": "Transport Layer Secruity"
+    },
+    {
+      "question": "The same key is used to encrypt and decrypt the message",
+      "correct": "Symmetric Encryption"
+    },
+    {
+      "question": "Uses two keys that work as a pair, one to encrypt the message, the other to decrypt the information",
+      "correct": "Asymmetric Encryption"
+    },
+    {
+      "question": "Checking to ensure that the data entered falls within the requirements of the program",
+      "correct": "Validation"
+    },
+    {
+      "question": "Checking to ensure that what the has entered is what they think they have entered.",
+      "correct": "Verification"
+    },
+    {
+      "question": "Asking the user to enter their password twice is known as...",
+      "correct": "?"
+    },
+    {
+      "question": "What type of check would you use for a user entering their age?",
+      "correct": "Range"
+    },
+    {
+      "question": "Check that the user has entered a date in the manner DDMMYYYY is known as",
+      "correct": "Format check"
+    },
+    {
+      "question": "Stopping a user entering a password like password123",
+      "correct": "Complexity check"
+    },
+    {
+      "question": "Checking that the user has not entered the same password as a previous password is known as a...",
+      "correct": "History check"
+    },
+    {
+      "question": "A check digit on a credit card functions as...",
+      "correct": "?"
+    },
+    {
+      "question": "Which of the following is a form of transfer verification",
+      "correct": "MD5 Checksum check"
+    },
+    {
+      "question": "Checking that an entry falls within a predetermined list of acceptable values is known as...",
+      "correct": "Range check"
+    },
+    {
+      "question": "Checking that the user has not left an entry blank is known as",
+      "correct": "Presence check"
+    },
+    {
+      "question": "Parity bits are a commonly used in...",
+      "correct": "Transfer verification"
+    },
+    {
+      "question": "In the program below, what kind of variable is og?  og = 0",
+      "correct": "Marker Variable"
+    },
+    {
+      "question": "When performing input validation with while and True, what causes the while loop to end?",
+      "correct": "A break command."
+    },
+    {
+      "question": "In what situation or try and except useful for input validation?",
+      "correct": "When validating that what the user inputted was an integer."
+    },
+    {
+      "question": "When does a while loop stop looping? (Choose the best answer.)",
+      "correct": "When the whole condition stops being true."
+    },
+    {
+      "question": "When running the program below, do user and put 5 when asked to input their favorite number. What type of variable is x once the user has submitted their input?\nx = input (\"What's your favorite number?\")",
+      "correct": "Input"
+    },
+    {
+      "question": "What would be the output of the following?\nautocorrectisawful = 4\nwhile (autocorrectisawful > 0):\nprint (autocorrectisawful)\nif (autocorrectisawful == 2):\nbreak\nautocorrectisawful -=1",
+      "correct": "4, 3, 2"
+    },
+    {
+      "question": "What could you put into the blank to ensure that the user continues to guess the shape until they guess it correctly (at which point the program ends)?\nrightanswer = 'trapezoid'\nua = ' '\nwhile ([blank]):\nua = input (\"What shape am I thinking of?\")\nif (ua != rightanswer):\nprint (\" nope, not that one. Try again.\")\nelse:\nprint (\"Yep, you got it!\")",
+      "correct": "true"
+    }
+   ]
