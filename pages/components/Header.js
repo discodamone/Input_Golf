@@ -31,6 +31,7 @@ export default function Header(props) {
         </div>
       </div>
       <Divider></Divider>
+      
     </div>
   );
 }
