@@ -2,6 +2,9 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Link from "next/link";
+import {Snackbar, Alert} from "@mui/material";
+import { SettingsPowerRounded } from "@mui/icons-material";
+import React, {useState} from 'react';
 
 function signoutLink(userInfo) {
   return userInfo ? (
@@ -18,7 +21,16 @@ function userName(userInfo) {
   return userInfo ? userInfo.username : "";
 }
 
+
+
+
+
 export default function Header(props) {
+  const [open, setOpen] = React.useState(props.message);
+  function handleClose()
+  {
+    setOpen(false)
+  }
   return (
     <div className="header-wrapper">
       <div className="header">
@@ -31,6 +43,7 @@ export default function Header(props) {
         </div>
       </div>
       <Divider></Divider>
+      <Snackbar open={open} onClose={handleClose} autoHideDuration={3000}><Alert severity="info" onClose={handleClose}>{props.message}</Alert></Snackbar>
     </div>
   );
 }
