@@ -13,5 +13,8 @@ We use this code to make an API request to get the user's public profile informa
 
 We get the user's public profile information and save it in the session.
 
+## /api/user/progress
+Gets the user's profile and statistics
+
 ## /api/user/session
 Mostly used for debugging, lists the current items stored in the user's session.

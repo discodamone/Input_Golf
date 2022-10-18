@@ -1,7 +1,10 @@
 # Todo Items
 
 ## MongoDB
-Set up MongoDB to store session information, user progress information
+Make the database persist after the container is killed
 
-## Bug fixes:
-/api/user/info doesn't work because the `session` object is empty. For some reason setting the session from the login callback doesn't persist. It may be because we have no session store besides memory. Need to set up MongoDB and probably avoid using `next-session`.
+## Populating database with questions
+Need to make the database read from a json file to populate questions and answers for each topic
+
+## Solving questions
+Need to implement solving questions and store which questions have been solved correctly for each user
