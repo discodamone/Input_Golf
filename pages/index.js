@@ -36,7 +36,7 @@ export default function page({ headerProps, resources }) {
           >
             {decideContent(headerProps.userInfo)}
           </Box>
-          <ResourceDrawer resources={resources}></ResourceDrawer>
+          {headerProps.userInfo && <ResourceDrawer resources={resources}></ResourceDrawer>}
         </div>
 
         <Footer />
