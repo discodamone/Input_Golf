@@ -5,12 +5,14 @@ import Button from "@mui/material/Button";
 import Link from "next/link";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import ResourceDrawer from "./components/ResourceDrawer.js";
+import { getAllResources } from "./api/resources";
 
 function decideContent(userInfo) {
   return userInfo ? (
     "authenticated"
   ) : (
-    <div style={{margin: 'auto', padding: '30px'}}>
+    <div style={{ margin: "auto", padding: "30px" }}>
       <Button variant="outlined">
         <Link href="/api/login">Login</Link>
       </Button>
@@ -18,16 +20,27 @@ function decideContent(userInfo) {
   );
 }
 
-export default function page({ userInfo, message }) {
+export default function page({ headerProps, resources }) {
   return (
-    <Box sx={{ bgcolor: "#f5f5f5", height: "100%" }}>
-      <Container className="container" maxWidth="lg">
-        <Header userInfo={userInfo} message={message} />
-        <Box sx={{ bgcolor: "#fafafa", height: "100%" }}>
-          {decideContent(userInfo)}
-        </Box>
+    <Box sx={{ bgcolor: "#E9E9E9", height: "100%" }}>
+      <div className="container">
+        <Header userInfo={headerProps.userInfo} message={headerProps.message} />
+        <div className="content-wrapper">
+          <Box
+            sx={{
+              bgcolor: "#fafafa",
+              height: "100%",
+              padding: "10px",
+              width: "100%",
+            }}
+          >
+            {decideContent(headerProps.userInfo)}
+          </Box>
+          <ResourceDrawer resources={resources}></ResourceDrawer>
+        </div>
+
         <Footer />
-      </Container>
+      </div>
     </Box>
   );
 }
@@ -35,8 +48,10 @@ export default function page({ userInfo, message }) {
 export async function getServerSideProps({ req, res }) {
   var session = await getSession(req, res);
   var headerProps = await getHeaderProps(session);
+  const resources = await getAllResources();
   await session.commit();
+
   return {
-    props: headerProps,
+    props: { headerProps, resources },
   };
 }

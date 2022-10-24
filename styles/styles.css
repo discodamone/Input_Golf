@@ -1,14 +1,39 @@
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    margin: auto;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  margin: auto;
 }
 
-html, body, .container, #__next {
-    height: 100%;
+html,
+body,
+.container,
+#__next {
+  height: 100%;
 }
 
 body > * {
-    height: 100%;
+  height: 100%;
+}
+
+.content-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.resource-drawer {
+  background-color: #fafafa;
+  padding-right: 10px;
+}
+
+.resource-drawer-header {
+  display: flex;
+}
+
+.resource-drawer-content {
+  width: 400px;
+}
+
+.resource-drawer-element > * {
+  top: 78px;
 }
 
