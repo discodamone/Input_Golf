@@ -26,7 +26,7 @@ function userName(userInfo) {
 
 
 export default function Header(props) {
-  const [open, setOpen] = React.useState(props.message);
+  const [open, setOpen] = React.useState(!!props.message);
   function handleClose()
   {
     setOpen(false)
