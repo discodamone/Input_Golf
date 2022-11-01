@@ -25,6 +25,7 @@ export default function ResourceDrawer({ resources }) {
   return (
     <div className="resource-drawer">
       <IconButton
+        className="resource-menu-icon"
         color="inherit"
         aria-label="open drawer"
         edge="end"
