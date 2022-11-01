@@ -3,7 +3,6 @@ import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import Button from "@mui/material/Button";
 import Link from "next/link";
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import ResourceDrawer from "./components/ResourceDrawer.js";
 import { getAllResources } from "./api/resources";
@@ -22,21 +21,22 @@ function decideContent(userInfo) {
 
 export default function page({ headerProps, resources }) {
   return (
-    <Box sx={{ bgcolor: "#E9E9E9", height: "100%" }}>
+    <Box sx={{ bgcolor: "#fafafa", height: "100%" }}>
       <div className="container">
         <Header userInfo={headerProps.userInfo} message={headerProps.message} />
         <div className="content-wrapper">
           <Box
             sx={{
               bgcolor: "#fafafa",
-              height: "100%",
               padding: "10px",
               width: "100%",
             }}
           >
             {decideContent(headerProps.userInfo)}
           </Box>
-          {headerProps.userInfo && <ResourceDrawer resources={resources}></ResourceDrawer>}
+          {headerProps.userInfo && (
+            <ResourceDrawer resources={resources}></ResourceDrawer>
+          )}
         </div>
 
         <Footer />

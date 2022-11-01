@@ -11,13 +11,20 @@ body,
   height: 100%;
 }
 
+.container {
+  overflow: hidden;
+}
+
 body > * {
   height: 100%;
 }
 
 .content-wrapper {
   display: flex;
-  height: 100%;
+  height: calc(100% - 78px);
+  position: relative;
+  top: 78px;
+  overflow: auto;
 }
 
 .resource-drawer {
@@ -37,3 +44,7 @@ body > * {
   top: 78px;
 }
 
+.resource-menu-icon {
+  position: fixed;
+    right: 30px;
+}
