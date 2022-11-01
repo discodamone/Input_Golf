@@ -6,21 +6,22 @@ import Link from "next/link";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import ResourceDrawer from "./components/ResourceDrawer.js";
-import { getAllResources } from "./api/resources";
+import Dashboard from "./components/Dashboard.js";
+import { getAllResources, getAllResourcesFromDirectory } from "./api/resources";
 
-function decideContent(userInfo) {
+function decideContent(userInfo, holes) {
   return userInfo ? (
-    "authenticated"
+    <Dashboard userInfo={userInfo} holes={holes}/>
   ) : (
     <div style={{ margin: "auto", padding: "30px" }}>
-      <Button variant="outlined">
-        <Link href="/api/login">Login</Link>
+      <Button variant="contained" href="/api/login">
+        Login
       </Button>
     </div>
   );
 }
 
-export default function page({ headerProps, resources }) {
+export default function page({ headerProps, resources, holes }) {
   return (
     <Box sx={{ bgcolor: "#E9E9E9", height: "100%" }}>
       <div className="container">
@@ -34,7 +35,7 @@ export default function page({ headerProps, resources }) {
               width: "100%",
             }}
           >
-            {decideContent(headerProps.userInfo)}
+            {decideContent(headerProps.userInfo, holes)}
           </Box>
           {headerProps.userInfo && <ResourceDrawer resources={resources}></ResourceDrawer>}
         </div>
@@ -50,8 +51,30 @@ export async function getServerSideProps({ req, res }) {
   var headerProps = await getHeaderProps(session);
   const resources = await getAllResources();
   await session.commit();
+  const resourceNames = await getAllResourcesFromDirectory();
+  function getHoles()
+  {
+    var holes = [];
+    for (var i = 0; i < resourceNames.length; i++)
+    {
+      // get the hole id from the beginning of md file name
+      var id = resourceNames[i].split("_")[0];
+      var hole = {};
+      hole['id'] = id;
+      // get the par from the 2nd part of the md file name
+      var par = resourceNames[i].split("_")[1];
+      hole['par'] = par
+      // get the rest and use it for a name, remove .md at the end
+      hole['name'] = resourceNames[i].substring((id + "_" + par + "_").length, resourceNames[i].length-3).replaceAll("_", " ");
+      // TODO: temporarily we assume this is zero, later we will need to update it based on the user's progress
+      hole['score'] = 0;
+      holes.push(hole);
+    }
+    holes.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+    return holes;
+  }
 
   return {
-    props: { headerProps, resources },
+    props: { headerProps: headerProps, resources: resources, holes: getHoles() },
   };
 }
