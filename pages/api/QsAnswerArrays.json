@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "topic": 1,
+    "topic": 0,
     "question": "What does the acronym C.I.A. stand for in a web security context?",
     "answers": [
       "Confidentiality, Integrity, Availability",
@@ -67,7 +67,7 @@
   },
   {
     "id": 7,
-    "topic": 3,
+    "topic": 0,
     "question": "What is the name by which a user is identified to a computer system or network?",
     "answers": [
       "User name",
@@ -78,7 +78,7 @@
   },
   {
     "id": 8,
-    "topic": 1,
+    "topic": 0,
     "question": "What is a filter that blocks unreliable and unauthorized information from the Internet before it reaches your computer or a private network?",
     "answers": [
       "Firewall",
@@ -133,7 +133,7 @@
   },
   {
     "id": 13,
-    "topic": 0, 
+    "topic": 1, 
     "question": "What is an action that prevents access to data from a server or a network by sending more requests than a server can handle?",
     "answers": [
       "Denial of Service (DoS) attacks",
@@ -144,7 +144,7 @@
   },
   {
     "id": 14,
-    "topic": 0,
+    "topic": 1,
     "question": "What is an action where two or more computers attack a server at the same time, with the attacking computer infected with malware that instructs the computer to continually send requests to the server?",
     "answers": [
       "Distributed Denial of Service (DDoS)",
@@ -210,7 +210,7 @@
   },
   {
     "id": 20,
-    "topic": 0,
+    "topic": 2,
     "question": "What is the act of extracting personal information, such as passwords and credit card details, from computer users and then using the information for malicious purposes?",
     "answers": [
       "Phishing",
@@ -221,7 +221,7 @@
   },
   {
     "id": 21,
-    "topic": 0,
+    "topic": 2,
     "question": "What is a computer program that is installed on your computer without your knowledge?",
     "answers": [
       "Spyware",
@@ -232,7 +232,7 @@
   },
   {
     "id": 22,
-    "topic": 0,
+    "topic": 2,
     "question": "What is a check that asks the user to confirm whether or not they wish to go ahead with an instruction?",
     "answers": [
       "Verification",
@@ -243,7 +243,7 @@
   },
   {
     "id": 23,
-    "topic": 0,
+    "topic": 2,
     "question": "What is a computer program that is designed to cause malfunctioning of a computer or damage the data stored on the computear?",
     "answers": [
       "Virus",
@@ -254,7 +254,7 @@
   },
   {
     "id": 24,
-    "topic": 0,
+    "topic": 2,
     "question": "What is a computer program that propagates itself across computers, usually by creating copies of itself in each computer's memory?",
     "answers": [
       "Worm",
@@ -265,7 +265,7 @@
   },
   {
     "id": 25,
-    "topic": 0,
+    "topic": 2,
     "question": "What is software that is intended to disrupt or modify a computer system and its data without the user's knowledge?",
     "answers": [
       "Malware",
@@ -276,7 +276,7 @@
   },
   {
     "id": 26,
-    "topic": 0,
+    "topic": 2,
     "question": "What is the use of emails to capture data by tricking a user to visit a fake website, and thus tricks the user into entering personal data?",
     "answers": [
       "Pharming",
@@ -287,7 +287,7 @@
   },
   {
     "id": 27,
-    "topic": 3,
+    "topic": 2,
     "question": "What is a message which asks for data to be transferred?",
     "answers": [
       "Request",
@@ -298,7 +298,7 @@
   },
   {
     "id": 28,
-    "topic": 0,
+    "topic": 2,
     "question": "What is a type of security which prevents access to a computer even if the user has physical access?",
     "answers": [
       "Authentication",
@@ -397,7 +397,7 @@
   },
   {
     "id": 37,
-    "topic": 1,
+    "topic": 0,
     "question": "What is a program which finds and removes viruses from a computer by scanning it",
     "answers": [
       "Antivirus",
@@ -419,7 +419,7 @@
   },
   {
     "id": 39,
-    "topic": 1,
+    "topic": 2,
     "question": "What is a type of Input validation that might help to prevent an SQL injection?",
     "answers": [
       "length limit",
@@ -430,7 +430,7 @@
   },
   {
     "id": 40,
-    "topic": 1,
+    "topic": 0,
     "question": "What is the term for preserving authorized restrictions on information access and disclosure?",
     "answers": [
       "Confidentiality",
@@ -441,7 +441,7 @@
   },
   {
     "id": 41,
-    "topic": 1,
+    "topic": 0,
     "question": "What is the term for guarding against improper information modification or destruction, and includes ensuring information non-repudiation and authenticity",
     "answers": [
       "Integrity",
@@ -452,7 +452,7 @@
   },
   {
     "id": 42,
-    "topic": 1,
+    "topic": 0,
     "question": "What is the term for ensuring timely and reliable access to and use of information",
     "answers": [
       "Availability",
@@ -462,8 +462,8 @@
     ]
   },
   {
-    "id": 42,
-    "topic": 1,
+    "id": 43,
+    "topic": 0,
     "question": "What is the term for a weakness in an information system, system security procedures, internal controls, or implementation that could be exploited or triggered by a threat source",
     "answers": [
       "Vulnerability",
@@ -473,8 +473,8 @@
     ]
   },
   {
-    "id": 42,
-    "topic": 1,
+    "id": 44,
+    "topic": 0,
     "question": "What is the term for any circumstance or event with the potential to adversely impact operations, assets, or individuals through an information system?",
     "answers": [
       "Threat",
@@ -482,7 +482,104 @@
       "Integrity",
       "Vulnerability"
     ]
+  },
+  {
+    "id": 45,
+    "topic": 1,
+    "question": "What is Open Design?",
+    "answers": [
+      "System Security should not have to rely on secrecy to be effective.",
+      "System Security should be open to extension, closed to modification.",
+      "System Security should be closed to extension, open to modification.",
+      "System Security should be seen by everyone in an organization to understnad."
+    ]
+  },
+  {
+    "id": 46,
+    "topic": 1,
+    "question": "What is the practice of writing software that continues operation after an unforseen circumstance?",
+    "answers": [
+      "Defensive Programming",
+      "Backup",
+      "Layered Defense",
+      "Open Design"
+    ]
+  },
+  {
+    "id": 47,
+    "topic": 1,
+    "question": "What is the use of mutliple security controls to protect against vulnerable part of your program?",
+    "answers": [
+      "Layered Defens",
+      "Backup",
+      "Defensive Programming",
+      "Open Design"
+    ]
+  },
+  {
+    "id": 48,
+    "topic": 1,
+    "question": "What is the concept that unless a subject is given explicit access to an object, it should be denied access to that object.",
+    "answers": [
+      "Fail-Safe Default",
+      "Safe-Fail Default",
+      "Defensive Programming",
+      "Open Design"
+    ]
+  },
+  {
+    "id": 49,
+    "topic": 2,
+    "question": "What is this check an example of? A program checks that the user has entered a date in the manner DDMMYYYY.",
+    "answers": [
+      "Format Check",
+      "Complexity Check",
+      "Range Check",
+      "Presence Check"
+    ]
+  },
+  {
+    "id": 50,
+    "topic": 2,
+    "question": "What is this check an example of? A program checks that the user has not left an entry blank.",
+    "answers": [
+      "Presence Check",
+      "Complexity Check",
+      "Range Check",
+      "Format Check"
+    ]
+  },
+  {
+    "id": 51,
+    "topic": 2,
+    "question": "What is this check an example of? A program checks that a specific entry falls between the integer 3 and 8.",
+    "answers": [
+      "Range Check",
+      "Complexity Check",
+      "Presence Check",
+      "Format Check"
+    ]
+  },
+  {
+    "id": 52,
+    "topic": 2,
+    "question": "What is this check an example of? A program checks that a password has more than 15 characters and has an Uppercase character.",
+    "answers": [
+      "Complexity Check",
+      "History Check",
+      "Presence Check",
+      "Format Check"
+    ]
+  },
+  {
+    "id": 53,
+    "topic": 2,
+    "question": "What is this check an example of? A program checks that a password is not the same as a previous password.",
+    "answers": [
+      "History Check",
+      "Complexity Check",
+      "Presence Check",
+      "Format Check"
+    ]
   }
-  
-
 ]
