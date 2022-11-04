@@ -19,8 +19,7 @@ export default async function(req, res)
 		const filter = {gh_id:userInfoResponse.data.id};
 		// update last login and add the necessary
 		const update = {$set:{gh_id:userInfoResponse.data.id, lastLogin:Date.now()}};
-		const options = {upsert:true}
-		var dbres = await collection.insertOne(filter, update, options);
+		var dbres = await collection.updateOne(filter, update, {upsert:true});
 		console.log(dbres);
 		
 	}

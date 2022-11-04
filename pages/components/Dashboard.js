@@ -48,7 +48,7 @@ export default function Dashboard(props) {
         Welcome, {props.userInfo.username}!
         <br />
         <br />
-        <Button variant="contained" onClick={warningOpen()} href="/newgame">New Game</Button>
+        <Button variant="contained" onClick={warningOpen()} href="/newhole">New Hole</Button>
         <br />
         <br />
         {continueButton(props)}
@@ -85,11 +85,11 @@ export default function Dashboard(props) {
       <Dialog open={open} onClose={warningClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
 
           <DialogTitle id="alert-dialog-title">
-            {"Create a new game?"}
+            {"Begin a new hole?"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-            {"Creating a new game will overwrite your existing game. Do you still want to create a new game?"}
+            {"Starting a new hole will remove your progress for unfinished holes. Do you still want to begin a new hole?"}
             </DialogContentText>
           </DialogContent>
           <DialogActions>
