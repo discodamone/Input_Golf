@@ -7,8 +7,15 @@ import Box from "@mui/material/Box";
 import ResourceDrawer from "./components/ResourceDrawer.js";
 import Dashboard from "./components/Dashboard.js";
 import { getAllResources, getAllResourcesFromDirectory } from "./api/resources";
+import { NetworkCheckOutlined } from "@mui/icons-material";
 
-export default function page({ headerProps, resources, holes }) {
+export default function page({ session, headerProps, resources, holes }) {
+  const startHole = async (holeid) =>
+  {
+    const response = await fetch('/api/quizzes/begin?csrfToken='+session.csrfToken+'&topic='+holeid);
+    const data = await response.json();
+    location.href = '/quiz';
+  }
   return (
     <Box sx={{ bgcolor: "#fafafa", height: "100%" }}>
       <div className="container">
@@ -24,7 +31,7 @@ export default function page({ headerProps, resources, holes }) {
             <div id="newhole" style={{margin:'auto',width:'50%','text-align':'center'}}>
               Start a new hole
               {holes.map((hole) =>{
-              return (<div key={hole.id}><br /><Button key={hole.id} variant="contained">{hole.id + ". " + hole.name}</Button></div>);
+              return (<div key={hole.id}><br /><Button key={hole.id} variant="contained" onClick={()=>{startHole(hole.id)}}>{hole.id + ". " + hole.name}</Button></div>);
             })}
             </div>
 
@@ -67,8 +74,8 @@ export async function getServerSideProps({ req, res }) {
     holes.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
     return holes;
   }
-
+  var holes = getHoles();
   return {
-    props: { headerProps: headerProps, resources: resources, holes: getHoles() },
+    props: { session, headerProps, resources, holes},
   };
 }
