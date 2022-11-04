@@ -422,9 +422,9 @@
     "topic": 2,
     "question": "What is a type of Input validation that might help to prevent an SQL injection?",
     "answers": [
-      "length limit",
-      "length minimum",
       "character restrictions",
+      "length minimum",
+      "length limit",
       "password complexity"
     ]
   },
