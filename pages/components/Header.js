@@ -31,6 +31,8 @@ export default function Header(props) {
   {
     setOpen(false)
   }
+
+  console.log(props, 'rrrr')
   return (
     <div className="header-wrapper">
       <div className="header">
@@ -47,3 +49,4 @@ export default function Header(props) {
     </div>
   );
 }
+

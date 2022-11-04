@@ -44,11 +44,11 @@ export default function Dashboard(props) {
 
   return (
     <div className="dashboard">
-      <div id="welcome-message" style={{margin:'auto',width:'50%','text-align':'center'}}>
+      <div id="welcome-message" style={{margin:'auto',width:'50%','textAlign':'center'}}>
         Welcome, {props.userInfo.username}!
         <br />
         <br />
-        <Button variant="contained" onClick={warningOpen()} href="/newgame">New Game</Button>
+        <Button variant="contained" onClick={warningOpen()} href="/game">New Game</Button>
         <br />
         <br />
         {continueButton(props)}

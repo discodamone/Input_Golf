@@ -10,7 +10,7 @@ import { getAllResources, getAllResourcesFromDirectory } from "./api/resources";
 
 function decideContent(userInfo, holes) {
   return userInfo ? (
-    <Dashboard userInfo={userInfo} holes={holes}/>
+    <Dashboard userInfo={userInfo} holes={holes} />
   ) : (
     <div style={{ margin: "auto", padding: "30px" }}>
       <Button variant="contained" href="/api/login">
@@ -52,29 +52,34 @@ export async function getServerSideProps({ req, res }) {
   const resources = await getAllResources();
   await session.commit();
   const resourceNames = await getAllResourcesFromDirectory();
-  function getHoles()
-  {
+  function getHoles() {
     var holes = [];
-    for (var i = 0; i < resourceNames.length; i++)
-    {
+    for (var i = 0; i < resourceNames.length; i++) {
       // get the hole id from the beginning of md file name
       var id = resourceNames[i].split("_")[0];
       var hole = {};
-      hole['id'] = id;
+      hole["id"] = id;
       // get the par from the 2nd part of the md file name
       var par = resourceNames[i].split("_")[1];
-      hole['par'] = par
+      hole["par"] = par;
       // get the rest and use it for a name, remove .md at the end
-      hole['name'] = resourceNames[i].substring((id + "_" + par + "_").length, resourceNames[i].length-3).replaceAll("_", " ");
+      hole["name"] = resourceNames[i].substring(
+        (id + "_" + par + "_").length,
+        resourceNames[i].length - 3
+      ).replace('/_/g', ' ');
       // TODO: temporarily we assume this is zero, later we will need to update it based on the user's progress
-      hole['score'] = 0;
+      hole["score"] = 0;
       holes.push(hole);
     }
-    holes.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+    holes.sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
     return holes;
   }
 
   return {
-    props: { headerProps: headerProps, resources: resources, holes: getHoles() },
+    props: {
+      headerProps: headerProps,
+      resources: resources,
+      holes: getHoles(),
+    },
   };
 }
