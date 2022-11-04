@@ -23,35 +23,43 @@ function userName(userInfo) {
   return userInfo ? userInfo.username : "";
 }
 
-function continueButton(props)
+function continueButton(gameInProgress)
 {
-  return (props.userInfo.gameInProgress) ? (<Button variant="contained">Continue {props.userInfo.gameInProgress.name}</Button>) : "";
+  return (gameInProgress != "") ? (<Button variant="contained" href="/quiz">Continue hole {gameInProgress}</Button>) : "";
 }
 
-export default function Dashboard(props) {
+export default function Dashboard({holes, userInfo, gameInProgress}) {
   const [open, setOpen] = React.useState(false);
-  function warningClose()
+  function warningClose(confirmed)
   {
     setOpen(false);
+    if (confirmed)
+    {
+      location.href = '/newhole';
+    }
   }
   function warningOpen()
   {
-    if (props.userInfo.gameInProgress)
+    if (gameInProgress != "")
     {
       setOpen(true);
+    }
+    else
+    {
+      location.href = 'newhole';
     }
   }
 
   return (
     <div className="dashboard">
       <div id="welcome-message" style={{margin:'auto',width:'50%','text-align':'center'}}>
-        Welcome, {props.userInfo.username}!
+        Welcome, {userInfo.username}!
         <br />
         <br />
-        <Button variant="contained" onClick={warningOpen()} href="/newhole">New Hole</Button>
+        <Button variant="contained" onClick={warningOpen}>New Hole</Button>
         <br />
         <br />
-        {continueButton(props)}
+        {continueButton(gameInProgress)}
         <br />
         <br />
         Progress
@@ -67,7 +75,7 @@ export default function Dashboard(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-            {props.holes.map((row)=>
+            {holes.map((row)=>
               { return (
                 <TableRow key={row.id}>
                   <TableCell component="th" scope="row">
@@ -82,19 +90,19 @@ export default function Dashboard(props) {
           </Table>
         </TableContainer>
       </div>
-      <Dialog open={open} onClose={warningClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+      <Dialog open={open} onClose={()=>warningClose(false)} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
 
           <DialogTitle id="alert-dialog-title">
             {"Begin a new hole?"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-            {"Starting a new hole will remove your progress for unfinished holes. Do you still want to begin a new hole?"}
+            {"Starting a new hole will remove your progress for the hole that you already started. Do you still want to begin a new hole?"}
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={warningClose}>Cancel</Button>
-            <Button onClick={warningClose}>Yes</Button>
+            <Button onClick={()=>warningClose(false)}>Cancel</Button>
+            <Button onClick={()=>warningClose(true)}>Yes</Button>
           </DialogActions>
       </Dialog>
 
