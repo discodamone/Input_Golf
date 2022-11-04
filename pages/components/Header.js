@@ -34,7 +34,7 @@ export default function Header(props) {
   return (
     <div className="header-wrapper">
       <div className="header">
-        <div style={{padding: 10 + 'px', alignSelf: 'center'}}>Input Golf</div>
+        <div style={{padding: 10 + 'px', alignSelf: 'center'}}><a href="/" style={{textDecoration: 'none'}}>Input Golf</a></div>
         <div className="user-info">
 			<span style={{marginRight: 5 + 'px'}}>
           {userName(props.userInfo)}
