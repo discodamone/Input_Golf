@@ -5,17 +5,23 @@ import Footer from "./components/Footer.js";
 import Button from "@mui/material/Button";
 import Link from "next/link";
 import Container from "@mui/material/Container";
+import {Stack, Snackbar, Alert} from "@mui/material";
+import ResourceDrawer from "./components/ResourceDrawer.js";
 import Box from "@mui/material/Box";
 import { getProgress } from "./api/user/progress.js";
+import React, {useState} from 'react';
+import { getAllResources} from "./api/resources";
+import { SensorDoorTwoTone } from "@mui/icons-material";
 
 
 
-export default function page({ session, userInfo, message, quizQuestions }) {
+export default function page({ csrfToken, message, headerProps, quizQuestions, resources, firstId }) {
 
-  const [currentId, setCurrentId] = useState(quizQuestions[0].id);
+  const [currentId, setCurrentId] = useState(firstId);
   const [wrongOpen, setWrongOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
   const [tempQuizQuestions, setTempQuizQuestions] = useState(quizQuestions);
+  const [done, setDone] = useState(false);
   const handleWrongClose = ()=>
   {
     setWrongOpen(false);
@@ -26,8 +32,8 @@ export default function page({ session, userInfo, message, quizQuestions }) {
   }
   const solve = async (answerIndex)=>
   {
-    const response = await fetch('/api/quizzes/solve?csrfToken=' + session.csrfToken + '&qId=' + currentId + '&answerIndex=' + answerIndex);
-    data = await response.json();
+    const response = await fetch('/api/quizzes/solve?csrfToken=' + csrfToken + '&qId=' + currentId + '&answerIndex=' + answerIndex);
+    var data = await response.json();
     if (data.solved == true)
     {
       for (var i = 0; i < tempQuizQuestions.length; i++)
@@ -43,14 +49,17 @@ export default function page({ session, userInfo, message, quizQuestions }) {
           }
           else
           {
+            setDone(true);
             location.href = '/';
           }
         }
-        else
-        {
-          setWrongOpen(true);
-        }
+
       }
+    }
+    else
+    {
+      console.log('wrong answer provided');
+      setWrongOpen(true);
     }
 
   }
@@ -58,23 +67,37 @@ export default function page({ session, userInfo, message, quizQuestions }) {
   return (
     <div>
     <Box sx={{ bgcolor: "#f5f5f5", height: "100%" }}>
-      <Container className="container" maxWidth="lg">
-        <Header userInfo={userInfo} message={message} />
-        <Box sx={{ bgcolor: "#fafafa", height: "100%" }}>
+      
+        <Header userInfo={headerProps.userInfo} message={message} />
+        <div className="content-wrapper">
+        <Box sx={{
+              bgcolor: "#fafafa",
+              padding: "10px",
+              width: "100%",
+            }}>
+          {
+          (!done) ?   (
           <div style={{width:"50%", margin: "auto"}}>
           <div style={{"text-align":"center", padding:"10px"}}>
           {tempQuizQuestions[0].question}
           </div>
-          
           <Stack>
           {tempQuizQuestions[0].answers.map((ans, index)=><Button variant="contained" key={index} onClick={()=>{solve(index)}}>{ans}</Button>)}
           </Stack>
           </div>
+          )
+          : ""
+        }
         </Box>
+        
+        {headerProps.userInfo && (
+            <ResourceDrawer resources={resources}></ResourceDrawer>
+          )}
+        </div>
         <Footer />
-      </Container>
+      
     </Box>
-    <Snackbar open={wrongOpen} onClose={handleWrongClose} autoHideDuration={1500}><Alert severity="error" onClose={handleWrongClose}>{"Wrong answer :( try again."}</Alert></Snackbar>
+    <Snackbar open={wrongOpen} onClose={handleWrongClose} autoHideDuration={1500}><Alert severity="error" onClose={handleWrongClose}>{"Wrong answer :(. Try again."}</Alert></Snackbar>
 
     <Snackbar open={rightOpen} onClose={handleRightClose} autoHideDuration={1500}><Alert severity="success" onClose={handleRightClose}>{"Nice job! You got the right answer!"}</Alert></Snackbar>
     </div>
@@ -83,9 +106,13 @@ export default function page({ session, userInfo, message, quizQuestions }) {
 
 export async function getServerSideProps({ req, res }) {
     var session = await getSession(req, res);
+    var csrfToken = session.csrfToken;
     var headerProps = await getHeaderProps(session);
-    var quizQuestions = await getProgress(req, res).solvedArray;
+    var quizQuestions = (await getProgress(req, res)).solvedArray;
+    var message = session.message;
+    const resources = await getAllResources();
+    var firstId = quizQuestions[0].id;
     return {
-      props: {...session, headerProps, quizQuestions}
+      props: {csrfToken, message, headerProps, quizQuestions, resources, firstId}
     };
   }
