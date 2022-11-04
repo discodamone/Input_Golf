@@ -26,8 +26,8 @@ export async function getAllResources() {
     let { data, content } = matter(fileContents);
 
     content = await markdownToHtml(content || "");
-
-    const title = resource.replace(/\.md$/, "");
+    
+    var title = resource.replace(/\.md$/, "").split("_").slice(0)[0] + ". "+resource.replace(/\.md$/, "").split("_").slice(2).join(" ");
 
     return {
       title,

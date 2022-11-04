@@ -4,14 +4,16 @@ import Footer from "./components/Footer.js";
 import Button from "@mui/material/Button";
 import Link from "next/link";
 import Box from "@mui/material/Box";
+import {Snackbar, Alert} from "@mui/material";
 import ResourceDrawer from "./components/ResourceDrawer.js";
 import Dashboard from "./components/Dashboard.js";
 import { getAllResources, getAllResourcesFromDirectory } from "./api/resources";
 import { getProgress } from "./api/user/progress.js";
+import React, {useState} from 'react';
 
-function decideContent(userInfo, holes) {
+function decideContent(userInfo, holes, gameInProgress) {
   return userInfo ? (
-    <Dashboard userInfo={userInfo} holes={holes}/>
+    Dashboard({holes, userInfo, gameInProgress})
   ) : (
     <div style={{ margin: "auto", padding: "30px" }}>
       <Button variant="contained" href="/api/login">
@@ -21,7 +23,12 @@ function decideContent(userInfo, holes) {
   );
 }
 
-export default function page({ headerProps, resources, holes }) {
+export default function page({ headerProps, resources, holes, gameInProgress }) {
+  const [open, setOpen] = useState(!!headerProps.message);
+  function handleClose()
+  {
+    setOpen(false)
+  }
   return (
     <Box sx={{ bgcolor: "#fafafa", height: "100%" }}>
       <div className="container">
@@ -34,13 +41,13 @@ export default function page({ headerProps, resources, holes }) {
               width: "100%",
             }}
           >
-            {decideContent(headerProps.userInfo, holes)}
+            {decideContent(headerProps.userInfo, holes, gameInProgress)}
           </Box>
           {headerProps.userInfo && (
             <ResourceDrawer resources={resources}></ResourceDrawer>
           )}
         </div>
-
+        <Snackbar open={open} onClose={handleClose} autoHideDuration={3000}><Alert severity="info" onClose={handleClose}>{headerProps.message}</Alert></Snackbar>
         <Footer />
       </div>
     </Box>
@@ -76,6 +83,6 @@ export async function getServerSideProps({ req, res }) {
   }
 
   return {
-    props: { headerProps: headerProps, resources: resources, holes: getHoles() },
+    props: { headerProps: headerProps, resources: resources, holes: getHoles(), gameInProgress: (progress.gameInProgress!=null) ? progress.gameInProgress : "" },
   };
 }

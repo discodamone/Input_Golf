@@ -85,10 +85,12 @@ export default async function(req, res)
         if (allSolved && newRecord == true)
         {
             doc = await collection.updateOne({gh_id:session.userInfo.gh_id}, {$set:{gameInProgress:null, solvedArray:[], attempts: 0, records: newRecordsDoc}},{upsert:true});
+            session.message = "Finished with a score of " + attempts;
         }
         else if (allSolved)
         {
             doc = await collection.updateOne({gh_id:session.userInfo.gh_id}, {$set:{gameInProgress:null, solvedArray:[], attempts: 0}},{upsert:true});
+            session.message = "Finished with a score of " + attempts + ". New personal record!";
         }
 
 	}
@@ -96,7 +98,7 @@ export default async function(req, res)
 	{
 		console.log(e)
 	}
-	
+	await session.commit();
 	res.json({solved:true});
 	res.status(200).end();
 

@@ -26,7 +26,7 @@ function userName(userInfo) {
 
 
 export default function Header(props) {
-  const [open, setOpen] = React.useState(!!props.message);
+  const [open, setOpen] = useState(!!props.message);
   function handleClose()
   {
     setOpen(false)
@@ -41,9 +41,12 @@ export default function Header(props) {
 		  </span>
           {signoutLink(props.userInfo)}
         </div>
+        <Snackbar open={open} onClose={handleClose} autoHideDuration={3000}><Alert severity="info" onClose={handleClose}>{props.message}</Alert></Snackbar>
       </div>
+      
       <Divider></Divider>
-      <Snackbar open={open} onClose={handleClose} autoHideDuration={3000}><Alert severity="info" onClose={handleClose}>{props.message}</Alert></Snackbar>
+      
+      
     </div>
   );
 }
