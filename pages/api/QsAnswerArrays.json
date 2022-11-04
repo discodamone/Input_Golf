@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "topic": 1,
+    "topic": 3,
     "question": "What is a small program that gets installed on a computer while browsing the Internet? The basic function of this program is to provide an interactive Internet experience through videos and toolbars, but can be used to gain unauthorized access to a computer, and then damage the data stored on it or install malicious software on it.",
     "answers": [
       "Active content",
@@ -189,7 +189,7 @@
   {
     "id": 18,
     "topic": 3,
-    "question": "Temporary memory on your computer that is sometimes used to store local copies of files opened when you browse the Internet",
+    "question": "What is temporary memory on your computer that is sometimes used to store local copies of files opened when you browse the Internet?",
     "answers": [
       "Cache",
       "Backup",
@@ -200,7 +200,7 @@
   {
     "id": 19,
     "topic": 3,
-    "question": "A small file on a computer that is created when a user visits a Web site",
+    "question": "What is a small file on a computer that is created when a user visits a Web site?",
     "answers": [
       "Cookie",
       "Cache",
@@ -210,8 +210,8 @@
   },
   {
     "id": 20,
-    "topic": 3,
-    "question": "The act of extracting personal information, such as passwords and credit card details, from computer users and then using the information for malicious purposes",
+    "topic": 0,
+    "question": "What is the act of extracting personal information, such as passwords and credit card details, from computer users and then using the information for malicious purposes?",
     "answers": [
       "Phishing",
       "Spamming",
@@ -221,8 +221,8 @@
   },
   {
     "id": 21,
-    "topic": 3,
-    "question": "A computer program that is installed on your computer without your knowledge",
+    "topic": 0,
+    "question": "What is a computer program that is installed on your computer without your knowledge?",
     "answers": [
       "Spyware",
       "Hacking",
@@ -232,8 +232,8 @@
   },
   {
     "id": 22,
-    "topic": 3,
-    "question": "A check that asks the user to confirm whether or not they wish to go ahead with an instruction",
+    "topic": 0,
+    "question": "What is a check that asks the user to confirm whether or not they wish to go ahead with an instruction?",
     "answers": [
       "Verification",
       "Enter to continue",
@@ -243,8 +243,8 @@
   },
   {
     "id": 23,
-    "topic": 3,
-    "question": "A computer program that is designed to cause malfunctioning of a computer or damage the data stored on the computer",
+    "topic": 0,
+    "question": "What is a computer program that is designed to cause malfunctioning of a computer or damage the data stored on the computear?",
     "answers": [
       "Virus",
       "Spyware",
@@ -254,8 +254,8 @@
   },
   {
     "id": 24,
-    "topic": 3,
-    "question": "A computer program that propagates itself across computers, usually by creating copies of itself in each computer's memory",
+    "topic": 0,
+    "question": "What is a computer program that propagates itself across computers, usually by creating copies of itself in each computer's memory?",
     "answers": [
       "Worm",
       "Hashing",
@@ -265,8 +265,8 @@
   },
   {
     "id": 25,
-    "topic": 3,
-    "question": "Software that is intended to disrupt or modify a computer system and its data without the user's knowledge",
+    "topic": 0,
+    "question": "What is software that is intended to disrupt or modify a computer system and its data without the user's knowledge?",
     "answers": [
       "Malware",
       "Spam",
@@ -276,8 +276,8 @@
   },
   {
     "id": 26,
-    "topic": 3,
-    "question": "Using emails to capture data by tricking a user to visit a fake website, and thus tricks the user into entering personal data",
+    "topic": 0,
+    "question": "What is the use of emails to capture data by tricking a user to visit a fake website, and thus tricks the user into entering personal data?",
     "answers": [
       "Pharming",
       "Soliciting",
@@ -288,7 +288,7 @@
   {
     "id": 27,
     "topic": 3,
-    "question": "A communication which asks for data to be transferred",
+    "question": "What is a message which asks for data to be transferred?",
     "answers": [
       "Request",
       "Denial",
@@ -298,8 +298,8 @@
   },
   {
     "id": 28,
-    "topic": 3,
-    "question": "Security which prevents access to a computer even if the user has physical access",
+    "topic": 0,
+    "question": "What is a type of security which prevents access to a computer even if the user has physical access?",
     "answers": [
       "Authentication",
       "Proxy",
@@ -310,7 +310,7 @@
   {
     "id": 29,
     "topic": 4,
-    "question": "A method of protecting the rights of an originator of a creative work, such as text, piece of music, painting, or computer program, through law",
+    "question": "What is a method of protecting the rights of an originator of a creative work, such as text, piece of music, painting, or computer program, through law?",
     "answers": [
       "Copyright",
       "Trademark",
@@ -332,7 +332,7 @@
   {
     "id": 31,
     "topic": 4,
-    "question": "Verbal defamation. This is a punishable offense",
+    "question": "What is the formal term for verbal defamation?",
     "answers": [
       "Slander",
       "Libel",
@@ -343,7 +343,7 @@
   {
     "id": 32,
     "topic": 4,
-    "question": "A sudden increase in line voltage, which may lead to the damage of electronic devices, such as computers",
+    "question": "What is a sudden increase in line voltage, which may lead to the damage of electronic devices, such as computers?",
     "answers": [
       "Power surge",
       "Lightning",
@@ -354,7 +354,7 @@
   {
     "id": 33,
     "topic": 4,
-    "question": "An individual who develops contact with Internet users, through chat rooms, online forums, or e-mail, to exploit them financially or involve them in dangerous relationships",
+    "question": "What is an individual who develops contact with Internet users, through chat rooms, online forums, or e-mail, to exploit them financially or involve them in dangerous relationships?",
     "answers": [
       "Online predator",
       "FBI",
@@ -365,7 +365,7 @@
   {
     "id": 34,
     "topic": 4,
-    "question": "Unauthorized copying of copyrighted software without obtaining the license or permission of its copyright owner",
+    "question": "What is the unauthorized copying of copyrighted software without obtaining the license or permission of its copyright owner?",
     "answers": [
       "Copyright Infringement",
       "Stealing",
@@ -375,8 +375,8 @@
   },
   {
     "id": 35,
-    "topic": 4,
-    "question": "An irrelevant and unsolicited e-mail message sent by an unknown sender",
+    "topic": 3,
+    "question": "What is an irrelevant and unsolicited e-mail message sent by an unknown sender?",
     "answers": [
       "Spam",
       "Phishing",
@@ -386,8 +386,8 @@
   },
   {
     "id": 36,
-    "topic": 4,
-    "question": "The use of physical characteristics such as fingerprints, voice patterns, and face shapes as means of identification",
+    "topic": 0,
+    "question": "What is the use of physical characteristics such as fingerprints, voice patterns, and face shapes as means of identification?",
     "answers": [
       "Biometrics",
       "Physical security",
@@ -397,8 +397,8 @@
   },
   {
     "id": 37,
-    "topic": 4,
-    "question": "A program which finds and removes viruses from a computer by scanning it",
+    "topic": 1,
+    "question": "What is a program which finds and removes viruses from a computer by scanning it",
     "answers": [
       "Antivirus",
       "Biometrics",
@@ -409,7 +409,7 @@
   {
     "id": 38,
     "topic": 2,
-    "question": "Input validation that might help to prevent buffer overflows",
+    "question": "What is a type of Input validation that might help to prevent buffer overflows?",
     "answers": [
       "length limit",
       "length minimum",
@@ -420,7 +420,7 @@
   {
     "id": 39,
     "topic": 1,
-    "question": "Input validation that might help to prevent an SQL injection",
+    "question": "What is a type of Input validation that might help to prevent an SQL injection?",
     "answers": [
       "length limit",
       "length minimum",
