@@ -4,6 +4,8 @@ WORKDIR /src/app/
 
 COPY . .
 
+RUN npm install
+
 # ENTRYPOINT ["npm", "run"]
 # CMD ["run", "dev"]
 
