@@ -75,7 +75,7 @@ export default function page({ csrfToken, message, headerProps, quizQuestions, r
   }
   
   return (
-    <div>
+    <div style={{height: "100%" }}>
     <Box sx={{ bgcolor: "#f5f5f5", height: "100%" }}>
       
         <Header userInfo={headerProps.userInfo} message={message} />
@@ -97,7 +97,7 @@ export default function page({ csrfToken, message, headerProps, quizQuestions, r
           {tempQuizQuestions[0].question}
           </div>
           <Stack>
-          {tempQuizQuestions[0].answers.map((ans, index)=><Button variant="contained" key={index} onClick={()=>{solve(index)}}>{ans}</Button>)}
+          {tempQuizQuestions[0].answers.map((ans, index)=><Button style={{marginBottom:"5px"}} variant="contained" key={index} onClick={()=>{solve(index)}}>{ans}</Button>)}
           </Stack>
           <br />
           <br />
@@ -123,6 +123,8 @@ export default function page({ csrfToken, message, headerProps, quizQuestions, r
           )
           : ""
         }
+
+        <Button style={{position:"absolute", bottom: "10px"}} variant="contained" href="/">Return to Dashboard</Button>
         </Box>
         
         {headerProps.userInfo && (
