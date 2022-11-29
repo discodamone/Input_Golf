@@ -9,10 +9,11 @@ import Dashboard from "./components/Dashboard.js";
 import { getAllResources, getAllResourcesFromDirectory } from "./api/resources";
 import { NetworkCheckOutlined } from "@mui/icons-material";
 
-export default function page({ session, headerProps, resources, holes }) {
+
+export default function page({ csrfToken, headerProps, resources, holes }) {
   const startHole = async (holeid) =>
   {
-    const response = await fetch('/api/quizzes/begin?csrfToken='+session.csrfToken+'&topic='+holeid);
+    const response = await fetch('/api/quizzes/begin?csrfToken='+csrfToken+'&topic='+holeid);
     const data = await response.json();
     location.href = '/quiz';
   }
@@ -75,7 +76,8 @@ export async function getServerSideProps({ req, res }) {
     return holes;
   }
   var holes = getHoles();
+  var csrfToken = session.csrfToken;
   return {
-    props: { session, headerProps, resources, holes},
+    props: { csrfToken, headerProps, resources, holes},
   };
 }

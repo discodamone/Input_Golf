@@ -3,12 +3,15 @@ import {getSession} from "../../../lib/get-session.js";
 import path from "path";
 const fs = require('fs');
 var MongoClient = require('mongodb').MongoClient;
+import { getProgress } from "../user/progress.js";
+import {getAllResourcesFromDirectory } from "../resources";
 
 export default async function(req, res)
 {
 
     // TODO: implement logic for solving a question for a topic
     var session = await getSession(req, res);
+    var progress = await getProgress(req, res);
     if (!(session.userInfo.gh_id && checkCsrf(req, session)))
     {
         return res.status(401).end();
@@ -49,14 +52,53 @@ export default async function(req, res)
         }
 
 		doc = await collection.updateOne({gh_id:session.userInfo.gh_id}, {$set:{solvedArray:solvedArray, attempts: attempts}},{upsert:true});
-		console.log(doc);
+        doc = await collection.findOne({gh_id:session.userInfo.gh_id});
+        var allSolved = true;
+        for (var i = 0; i < solvedArray.length; i++)
+        {
+            if (solvedArray[i].solved == false)
+            {
+                allSolved = false;
+            }
+        }
+        
+        var newRecord = false;
+        var newRecordsDoc = [];
+        if (doc.records && doc.records[progress.gameInProgress] > attempts)
+        {
+            newRecordsDoc = doc.records;
+            newRecordsDoc[progress.gameInProgress] = attempts;
+            newRecord = true;
+            console.log("in top");
+        }
+        else if (!doc.records)
+        {
+            newRecord = true;
+            newRecordsDoc = [];
+            for (var i = 0; i < (await getAllResourcesFromDirectory()).length; i++)
+            {
+                newRecordsDoc.push(1337);
+            }
+            console.log("in bottom");
+        }
+        
+        if (allSolved && newRecord == true)
+        {
+            doc = await collection.updateOne({gh_id:session.userInfo.gh_id}, {$set:{gameInProgress:null, solvedArray:[], attempts: 0, records: newRecordsDoc}},{upsert:true});
+            session.message = "Finished with a score of " + attempts;
+        }
+        else if (allSolved)
+        {
+            doc = await collection.updateOne({gh_id:session.userInfo.gh_id}, {$set:{gameInProgress:null, solvedArray:[], attempts: 0}},{upsert:true});
+            session.message = "Finished with a score of " + attempts + ". New personal record!";
+        }
 
 	}
 	catch(e)
 	{
 		console.log(e)
 	}
-	
+	await session.commit();
 	res.json({solved:true});
 	res.status(200).end();
 

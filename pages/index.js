@@ -4,13 +4,16 @@ import Footer from "./components/Footer.js";
 import Button from "@mui/material/Button";
 import Link from "next/link";
 import Box from "@mui/material/Box";
+import {Snackbar, Alert} from "@mui/material";
 import ResourceDrawer from "./components/ResourceDrawer.js";
 import Dashboard from "./components/Dashboard.js";
 import { getAllResources, getAllResourcesFromDirectory } from "./api/resources";
+import { getProgress } from "./api/user/progress.js";
+import React, {useState} from 'react';
 
-function decideContent(userInfo, holes) {
+function decideContent(userInfo, holes, gameInProgress) {
   return userInfo ? (
-    <Dashboard userInfo={userInfo} holes={holes}/>
+    Dashboard({holes, userInfo, gameInProgress})
   ) : (
     <div style={{ margin: "auto", padding: "30px" }}>
       <Button variant="contained" href="/api/login">
@@ -20,7 +23,12 @@ function decideContent(userInfo, holes) {
   );
 }
 
-export default function page({ headerProps, resources, holes }) {
+export default function page({ headerProps, resources, holes, gameInProgress }) {
+  const [open, setOpen] = useState(!!headerProps.message);
+  function handleClose()
+  {
+    setOpen(false)
+  }
   return (
     <Box sx={{ bgcolor: "#fafafa", height: "100%" }}>
       <div className="container">
@@ -33,13 +41,13 @@ export default function page({ headerProps, resources, holes }) {
               width: "100%",
             }}
           >
-            {decideContent(headerProps.userInfo, holes)}
+            {decideContent(headerProps.userInfo, holes, gameInProgress)}
           </Box>
           {headerProps.userInfo && (
             <ResourceDrawer resources={resources}></ResourceDrawer>
           )}
         </div>
-
+        <Snackbar open={open} onClose={handleClose} autoHideDuration={3000}><Alert severity="info" onClose={handleClose}>{headerProps.message}</Alert></Snackbar>
         <Footer />
       </div>
     </Box>
@@ -51,6 +59,7 @@ export async function getServerSideProps({ req, res }) {
   var headerProps = await getHeaderProps(session);
   const resources = await getAllResources();
   await session.commit();
+  var progress = await getProgress(req, res);
   const resourceNames = await getAllResourcesFromDirectory();
   function getHoles()
   {
@@ -66,8 +75,7 @@ export async function getServerSideProps({ req, res }) {
       hole['par'] = par
       // get the rest and use it for a name, remove .md at the end
       hole['name'] = resourceNames[i].substring((id + "_" + par + "_").length, resourceNames[i].length-3).replaceAll("_", " ");
-      // TODO: temporarily we assume this is zero, later we will need to update it based on the user's progress
-      hole['score'] = 0;
+      hole['score'] = (progress.hasOwnProperty('records') && progress.records[id] !== 1337) ? progress.records[id] : "N/A";
       holes.push(hole);
     }
     holes.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
@@ -75,6 +83,6 @@ export async function getServerSideProps({ req, res }) {
   }
 
   return {
-    props: { headerProps: headerProps, resources: resources, holes: getHoles() },
+    props: { headerProps: headerProps, resources: resources, holes: getHoles(), gameInProgress: (progress.gameInProgress!=null) ? progress.gameInProgress : "" },
   };
 }

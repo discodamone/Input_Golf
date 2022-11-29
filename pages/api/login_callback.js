@@ -21,7 +21,17 @@ export default async function(req, res)
 		const update = {$set:{gh_id:userInfoResponse.data.id, lastLogin:Date.now()}};
 		var dbres = await collection.updateOne(filter, update, {upsert:true});
 		console.log(dbres);
-		
+		var doc = collection.findOne({gh_id:userInfoResponse.data.id})
+		if (!doc.records)
+        {
+            newRecordsDoc = [];
+            for (var i = 0; i < (await getAllResourcesFromDirectory()).length; i++)
+            {
+                newRecordsDoc.push(1337);
+            }
+			collection.updateOne({gh_id:userInfoResponse.data.id}, {$set:{records:newRecordsDoc}}, {upsert:true});
+        }
+
 	}
 	catch(e)
 	{
