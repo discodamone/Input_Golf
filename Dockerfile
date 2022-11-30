@@ -4,6 +4,7 @@ WORKDIR /src/app/
 
 COPY . .
 
+RUN npm install next -g
 RUN npm install
 
 # ENTRYPOINT ["npm", "run"]
