@@ -5,7 +5,7 @@ This is a project that is meant to help students learn about beginner-level cybe
 
 ## Setup
 1. Clone the repository
-2. Create a Github application and save your `client_id` and `client_secret`
+2. Create a Github application and save your `client_id` and `client_secret`. Make sure your application allows a redirect of http://localhost (or whatever the BASE_URL value of the following .env file is)
 3. Create a `.env` file in the root of the repository with the following contents:
 ```
 CLIENT_ID=your_client_id_here
