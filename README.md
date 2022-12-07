@@ -1,16 +1,29 @@
 # Input\_Golf
 
 ## Overview
-This repository contains the code for our next.js server, which will later be connected to a MongoDB server.
+This is a project that is meant to help students learn about beginner-level cybersecurity topics through the use of a golf-themed quiz game
 
-## Need help on Next.js?
-Check the documentation [https://nextjs.org/docs](here)
+## Setup
+1. Clone the repository
+2. Create a Github application and save your `client_id` and `client_secret`
+3. Create a `.env` file in the root of the repository with the following contents:
+```
+CLIENT_ID=your_client_id_here
+CLIENT_SECRET=your_client_secret_here
+BASE_URL=http://localhost
+MONGO_INITDB_ROOT_USERNAME=admin
+MONGO_INITDB_ROOT_PASSWORD=admindevelopmentpassword
+MONGO_CONNECT_URL=mongodb://mongo:27017
+```
+4. Build the docker containers by running `sudo docker-compose build` from the root of the repository
+5. Run the docker containers by running `sudo docker-compose up -d`
 
-## Running the server
+### Alternative setup
+If using docker fails for any reason, you can set up your own MongoDB instance using MongoDB's hosted cloud service, and point the `MONGO_CONNECT_URL` in the environment file to that instance. Then run `npm run dev` to start the NodeJS container, which will connect to that MongoDB server.
 
-### Old way:
-Make sure startdev.sh is executable, then run it with ./startdev.sh. This contains a simple command to start the server in development mode using Docker. It maps port 80 on the host machine to port 3000 in the container. This means to connect to the web server, you will need to visit http://localhost:80 in your browser.
-### New way (with MongoDB):
-Install docker-compose. Run sudo `docker-compose up -d` from within the Input\_Golf directory. Any changes you make to the source code will apply in real-time.
+It is highly recommended to use docker-compose due to the additional latency associated with a cloud-hosted version of MongoDB and our app's frequent interactions with the database to retrieve session and user information.
 
-### Important note: you need a .env file! Ask for it if you need it.
+## Configuration
+Some files in the repository can be changed to meet your specific needs:
+1. There is a JSON file at ./pages/api/QsAnswerArrays.json. This needs to be modified to contain the questions and answers you want, and to associate those with the correct topic number. After modifying this file, you can run `node questionUtils.js` to randomize the questions and answers to be less predictable.
+2. There is a `resources` directory that contains files in the format of `topicNumber_Par_Name_of_Topic.md`. This is what determines the number, par, and name of each topic. You will need to change the name of these files to match the topics you want to be teaching, and change the contents of the files to be a markdown representation of the content you want to display in the web app within the resources side panel.
